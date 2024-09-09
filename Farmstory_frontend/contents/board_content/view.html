@@ -1,0 +1,74 @@
+
+
+            <section class="view">
+				<h3>글보기</h3>
+				<table>
+					<tr>
+						<td>제목</td>
+						<input type="hidden" name="b_cateNo" value="${cate}"/>
+                       	<input type="hidden" name="group" value="${group}"/>
+						<td><input type="text" name="title"
+							value="${boardDTO.title}" readonly /></td>
+					</tr>
+					<!-- 첨부파일이 있으면 나타나게끔  -->
+					<c:if test="${boardDTO.b_fNo > 0}">
+						<tr>
+							<td>첨부파일</td>
+							<td>
+                                <p style="margin: 4px 0">
+                                    <a href="#">original name</a>
+                                    <span>0회 다운로드</span>
+                                </p>
+							</td>
+						</tr>
+					</c:if>
+					<tr>
+						<td>내용${boardDTO.b_fNo }</td>
+						<td>
+							<textarea name="b_contents" readonly>contents</textarea>
+						</td>
+					</tr>
+				</table>
+				 <div>
+	                    <a href="#" class="btnDelete">삭제</a>
+	                    <a href="#" class="btnModify">수정</a>
+	                    <a href="#" class="btnList">목록</a>
+	                 
+                </div>  
+
+				 <!-- 댓글리스트 -->
+                <section class="commentList">
+                    <h3>댓글목록</h3>
+	                    <article class="comment">
+		                   		 <span>
+		                            <span>nick</span>
+		                            <span>0000-00-00</span>
+		                        </span>
+	                        <textarea name="comment" readonly>댓글 내용</textarea>
+		                        <div>
+		                        	<!-- HTML 사용자 정의 속성을 이용한 삭제/수정 -->
+		                            <a href="#" class="commentRemove" data-no="${comment.comNo}">삭제</a>
+		                            <a href="#" class="commentModify" data-no="${comment.comNo}">수정</a>
+		                            <a href="#" class="commentUpdate" data-no="${comment.comNo}" style="display:none;">수정완료</a>
+		                        </div>
+	                    </article>
+                    <c:if test="${empty comments}">
+	                    <p class="empty">등록된 댓글이 없습니다.</p>
+                    </c:if>
+				</section>
+
+				<!-- 댓글입력폼 -->
+				<section class="commentForm">
+					<h3>댓글쓰기</h3>
+					<form name="commentForm">
+						<input type="hidden" name="com_parent" value="boardNo" /> 
+                        <input type="hidden" name="com_writer" value="userid" />
+						<textarea name="comment"></textarea>
+						<div>
+							<a href="#" class="btnCancel">취소</a> 
+							<input type="submit" class="btnWrite" value="작성완료" />
+						</div>
+					</form>
+				</section>
+			</section>
+       
