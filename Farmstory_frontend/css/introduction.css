@@ -1,0 +1,89 @@
+/* 기본설정 */
+* {
+  margin: 0;
+  padding: 0;
+  font: normal 12px '맑은고딕';
+}
+
+* ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input,
+textarea {
+  outline: none
+}
+
+* #wrapper {
+  width: 100%;
+  height: 100%;
+}
+/* 아티클 */
+.intro_article{
+  height: 650px;
+  width: 802px;
+
+}
+/* 나브 */
+.intro_nav {
+  width: 762px;
+  height: 72px;
+  float: right;
+  position: relative;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.intro_nav>img:nth-of-type(1) {
+  position: absolute;
+  bottom: 5px;    
+}
+
+
+.intro_nav>p {
+  position: absolute;
+  right: 0px;
+  bottom: 5px;
+}
+.intro_nav>p >img{
+  margin-bottom: 2px;
+}
+.intro_nav>p>strong {
+  line-height: 14.52px;
+  color: #91BA15;
+  font-weight: bold;
+}
+/* 인사말 내용 */
+.intro_detail {
+  float: right;
+  width: 762px;
+}
+
+.intro_detail>img {
+  margin-top : 40px;
+}
+.intro_detail > p {
+  line-height: 20px;
+}
+.intro_detail > p > strong{
+  line-height: 14.52px;
+        color: #91BA15;
+        font-weight: bold;
+}
+.intro_detail>p:nth-of-type(1) {
+  margin-top: 14px;
+}
+.intro_detail>p:nth-of-type(2) {
+  margin-top: 20px;
+}
+.intro_detail>p:nth-of-type(3) {
+  margin-top: 23px;
+}
+.intro_detail>p:nth-of-type(4) {
+  margin-top: 23px;
+}

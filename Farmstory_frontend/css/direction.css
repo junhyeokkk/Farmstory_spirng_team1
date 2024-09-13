@@ -1,0 +1,86 @@
+
+/* 기본설정 */
+* {
+  margin: 0;
+  padding: 0;
+  font: normal 12px '맑은고딕';
+}
+
+* ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input,
+textarea {
+  outline: none
+}
+
+* #wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* 아티클 */
+.direc_article {
+  height: 650px;
+  width: 802px;
+}
+/* 나브 */
+.direc_nav {
+  width: 762px;
+  height: 72px;
+  float: right;
+  position: relative;
+  border-bottom: 1px solid #c2c2c2;
+}
+/* 찾아오는길 이미지 */
+.direc_nav>img {
+  position: absolute;
+  bottom: 5px;
+}
+/* 찾아오는길 태그 */
+.direc_nav>p {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+}
+.direc_nav>p>img {
+  margin-bottom: 2px;
+}
+
+.direc_nav>p>strong {
+  color: rgb(124, 165, 64)
+}
+/* 찾아오는길 내용 */
+.direc_detail {
+  float: right;
+  width: 762px;
+}
+
+.direc_detail>p:nth-of-type(1) {
+  margin-top: 40px;
+  line-height: 14.52px;
+  color: #91BA15;
+  font-weight: bold;
+}
+
+.direc_detail>p:nth-of-type(2) {
+  margin-top: 5px;
+  line-height: 20px;
+}
+
+.direc_detail>p:nth-of-type(3) {
+  margin-top: 10px;
+  line-height: 14.52px;
+  color: #91BA15;
+  font-weight: bold;
+}
+.map {
+  margin-top: 6px;
+}

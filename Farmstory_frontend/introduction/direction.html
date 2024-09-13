@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="../css/direction.css"> 
+        <article class="direc_article">
+          <nav class="direc_nav">
+            <img src="../images/sub_nav_tit_cate1_tit2.png" alt="event">
+            <p>
+              <img src="../images/sub_page_nav_ico.gif" alt="navIcon">
+              HOME > 팜스토리소개 > <strong>찾아오시는 길</strong>
+            </p>
+          </nav>
+          <div class="direc_detail">
+            <p>팜스토리</p>
+            <p>
+              주소 : 부산광역시 부산진구 부전동 123<br> 전화 : 01-234-5678
+            </p>
+            <p>찾아오시는 길</p>
+            <div id="map" style="width: 762px; height: 400px;" class="map"></div>
+          </div>
+          
+          <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=861eab31626b5ffc3da70a0341aad34e"></script>
+          <script>
+            var container = document.getElementById('map');
+            var options = {
+              center: new kakao.maps.LatLng(35.1596124, 129.0601826),
+              level: 2
+            };
+
+            var map = new kakao.maps.Map(container, options);
+
+            var markerPosition = new kakao.maps.LatLng(35.1596124, 129.0601826);
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+              position: markerPosition
+            });
+
+            // 마커가 지도 위에 표시되도록 설정합니다
+            marker.setMap(map);
+          </script>
+        </article>
