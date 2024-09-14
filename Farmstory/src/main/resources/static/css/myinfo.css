@@ -1,0 +1,27 @@
+.aside_bg .cate_lnb1 li .lnb1{
+    position: absolute; left: 0; top:107px; 
+    text-indent: -9999px; display: block; width: 176px; height: 29px; 
+    background: url('../images/myinfo/myinfo_menu1.png') no-repeat;
+}
+
+.aside_bg .cate_lnb1 li .lnb2{
+    position: absolute; left: 0; top:137px; 
+    text-indent: -9999px; display: block; width: 176px; height: 29px; 
+    background: url('../images/myinfo/myinfo_menu2.png') no-repeat;
+}
+
+.aside_bg .cate_lnb1 li .lnb3{
+    position: absolute; left: 0; top:167px; 
+    text-indent: -9999px; display: block; width: 176px; height: 29px; 
+    background: url('../images/myinfo/myinfo_menu3.png') no-repeat;
+}
+
+.aside_bg .cate_lnb1 li .lnb1:hover{background: url('../images/myinfo/myinfo_menu1_ov.png')  no-repeat;  opacity: 50%; }
+
+.aside_bg .cate_lnb1 li .lnb2:hover{background: url('../images/myinfo/myinfo_menu2_ov.png') no-repeat;  opacity: 50%;}
+
+.aside_bg .cate_lnb1 li .lnb3:hover{background: url('../images/myinfo/myinfo_menu3_ov.png') no-repeat;  opacity: 50%;}
+
+
+/* 메인 콘텐츠 */
+

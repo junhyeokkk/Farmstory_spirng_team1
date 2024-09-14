@@ -1,0 +1,202 @@
+/* 아티클 */
+.intro_article{
+    height: 650px;
+    width: 802px;
+
+}
+
+/* 인사말 내용 */
+.intro_detail {
+    width: 762px;
+}
+
+.intro_detail>img {
+    margin-top : 40px;
+}
+.intro_detail > p {
+    line-height: 20px;
+}
+.intro_detail > p > strong{
+    line-height: 14.52px;
+    color: #91BA15;
+    font-weight: bold;
+}
+.intro_detail>p:nth-of-type(1) {
+    margin-top: 14px;
+}
+.intro_detail>p:nth-of-type(2) {
+    margin-top: 20px;
+}
+.intro_detail>p:nth-of-type(3) {
+    margin-top: 23px;
+}
+.intro_detail>p:nth-of-type(4) {
+    margin-top: 23px;
+}
+
+
+/* #main 메인 --------------------------------------------------------*/
+#main{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* mainIn */
+.mainIn{
+    width: 980px;
+    height:184px;
+    margin: 0 auto;
+}
+
+.sub_bg {
+    background-image: url(../images/sub_top_bg.jpg);
+    width: 980px;
+height: 184px;
+position: relative;
+}
+
+.sub_tit {
+position: absolute;
+bottom: 10px;
+width: 326px;
+left: 10px;
+}
+
+article > nav{
+width: 762px;
+height: 72px;
+ margin-top: 41px;
+margin-left: 40px;
+overflow: hidden;
+}
+
+article > nav::after{
+    display: block;
+    content: "";
+    clear: both;
+    width: 762px;
+    height: 1px;
+    background: #c2c2c2;
+    margin-top: 5px;
+}
+
+ article{
+    width: 802px;
+    height: 650px;
+    float: right;
+ }
+
+ .txt strong{color:#91BA15; font-weight: bold;}
+
+ .txt{
+  margin: 14px 0 0 40px; }
+
+ .content{
+     margin-left: 40px;}
+
+
+
+ /* .location */
+ .location{
+    float:right; 
+    height: 17px;
+    font-family: Inter; 
+    font-size: 12px; 
+    font-weight: 400; 
+    line-height: 14.52px; 
+    text-align: left;
+}
+
+.location::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.location > img {
+    margin-bottom: 1px;
+}
+
+.location span{
+    color:#8C8C8C;
+}
+
+.location span:after{
+    display: inline-block; 
+    content: ">" ; 
+    clear: both;
+}
+
+.location strong{
+    color:#91BA15;
+    font-weight: 700;
+}  /* .location end */
+
+
+/* footer  */
+footer{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 976px;
+}
+
+footer .ftlogo {
+   float: left;
+   margin-right: 70px;
+}
+
+.footerIn{
+    width: 980px;
+    height: 130px;
+    margin: 0 auto;
+    background: url(../images/footer_top_line.png) no-repeat;
+    background-position: top;
+}
+
+.footerIn *{
+    display: inline;
+    font-size: 12px;
+
+}
+
+.companyft {
+    display: block;
+    padding-top: 27px;
+}
+
+.ceoft{
+   display: block;
+
+}
+
+.Copy{
+    display: block;
+    padding-top: 0px;
+}
+
+.companyft li::after{
+    content: " /";
+
+}
+.companyft li:last-child::after{
+    content: "";
+}
+
+.ceoft li::after{
+    content: " /";
+}
+.ceoft li:last-child:after{
+    content: "";
+}
+/* footer end */
+
+
+.Copy {
+    text-align: justify;
+    padding-left: 243px; 
+    font-size: 12px; /* Font size */
+    color: #777; /* Text color */
+    font-weight: bold;
+}
