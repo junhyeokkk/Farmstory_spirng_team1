@@ -8,7 +8,7 @@ logging:
             sqltiming: debug
         root: info
 server:
-    port: 8082
+    port: 8080
     servlet:
         context-path: /Farmstory
 spring:

@@ -20,10 +20,10 @@ public class SecurityConfig {
                         .requestMatchers("/", "/index", "/**").permitAll()  // 인증 없이 접근 허용할 경로
                         .anyRequest().permitAll() // 그 외의 요청은 인증 필요
                 )
-//                .formLogin((form) -> form
-//                        .loginPage("/user/login")  // 로그인 페이지 경로
-//                        .permitAll()
-//                )
+                .formLogin((form) -> form
+                        .loginPage("/user/login")  // 로그인 페이지 경로
+                        .permitAll()
+                )
                 .logout(LogoutConfigurer::permitAll
                 )
                 .headers(headers -> headers
