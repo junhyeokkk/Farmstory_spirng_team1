@@ -47,10 +47,9 @@
           <div th:if="${cate.cateName == 'findpass'}">
             <div th:replace="~{contents/user/findpass.html}"></div>
           </div>
-          <div th:if="${cate.cateName == 'myinfo'}">
-            <div th:replace="~{contents/user/myinfo.html}"></div>
+          <div th:if="${cate.cateGroup != 'myinfo'}">
+            <div th:replace="~{aside/nav.html}"></div>
           </div>
-          <div th:replace="~{aside/nav.html}"></div>
 
 
 

@@ -1,101 +1,93 @@
-.findid-section {
+section {
     width: 600px;
-    height: 286px;
+    height: 290px;
     margin: 0 auto;
-    margin-top: 76px;
+    margin-top: 95px;
     box-sizing: border-box;
-    margin-bottom: 60px;
 }
-
-
-
-.findid-section > h2{
-    padding-top: 16px;
-    padding-bottom: 8px;
-    box-sizing: border-box;
-    font-size: 12px;
-    line-height: 12px;
+h2 {
+    width: 100px;
+    height: 14px;
+    size: 12px;
+    margin: 5px;
+    font-weight: bold;
 }
-
 hr {
-    border: solid   1px #111111;
+    border: solid 1px black;
 }
-
 .table {
     width: 600px;
-    height: 136px;
-    margin-bottom: 15px;
+    height: 150px;
 }
-
-.table > div:nth-child(1) {
+.table > div:nth-child(1){
     width: 120px;
-    height: 49px;
-    border: 1px solid #e9e9e9;
+    height: 43px;
+    border : 1px solid #e9e9e9;
     box-sizing: border-box;
     position: relative;
 }
-
 .table > div:nth-child(2) {
     width: 479px;
-    height: 49px;
-    border: 1px solid #e9e9e9;
+    height: 43px;
+    border : 1px solid #e9e9e9;
     box-sizing: border-box;
-    position: relative;
-    left: 120px;
-    bottom: 49px;
+    position: relative; left: 120px; bottom: 43px;
 }
-
 .table > div:nth-child(3) {
     width: 120px;
-    height: 87px;
-    border: 1px solid #e9e9e9;
+    height: 49px;
+    border : 1px solid #e9e9e9;
     box-sizing: border-box;
-    position: relative;
-    bottom: 49.5px;
+    position: relative; bottom: 43px;
 }
-
 .table > div:nth-child(4) {
-    width: 479px;
-    height: 87px;
-    border: 1px solid #e9e9e9;
+    width: 120px;
+    height: 49px;
+    border : 1px solid #e9e9e9;
     box-sizing: border-box;
-    position: relative;
-    left: 120px;
-    bottom: 136.5px;
+    position: relative; left:0px; bottom: 43px;
 }
-
-.name {
-    width: 24px;
+.table > div:nth-child(5) {
+    width: 479px;
+    height: 49px;
+    border : 1px solid #e9e9e9;
+    box-sizing: border-box;
+    position: relative; left:120px; bottom: 141px;
+}
+.table > div:nth-child(6) {
+    width: 479px;
+    height: 49px;
+    border : 1px solid #e9e9e9;
+    box-sizing: border-box;
+    position: relative; left:120px; bottom: 141px;
+}
+.id {
+    width: 36px;
     height: 14px;
     position: absolute;
-    top: 16px;
+    top: 12px;
     left: 14px;
     font-weight: bold;
 }
-
-.nametext {
-    width: 164px;
+.honggildong {
+    width: 64px;
     height: 24px;
     position: absolute;
     top: 10px;
     left: 14px;
-    padding-left: 7px;
     font-weight: bold;
-    background-color: #f7f7f7;
-    border: 1px solid #e4eaec;
-}
 
-.email {
-    width: 36px;
+}
+.newpass {
+    width: 66px;
     height: 14px;
     position: absolute;
-    top: 33px;
+    top: 14px;
     left: 14px;
     box-sizing: border-box;
     font-weight: bold;
 }
-
-.emailtext {
+.newpasstext {
     width: 164px;
     height: 24px;
     position: absolute;
@@ -106,29 +98,25 @@ hr {
     background-color: #f7f7f7;
     border: 1px solid #e4eaec;
 }
-
-.getCodeBtn {
-    width: 85px;
+.newpasscheck {
+    width: 93px;
     height: 26px;
     position: absolute;
-    top: 12px;
-    left: 190px;
+    top: 14px;
+    left: 14px;
     font-weight: bold;
-    border: 1px solid #bebebe;
 }
-
-.verificationCodetext {
+.newpasschecktext {
     width: 164px;
     height: 24px;
     position: absolute;
-    top: 45px;
+    top: 12px;
     left: 14px;
     padding-left: 7px;
     font-weight: bold;
     background-color: #f7f7f7;
     border: 1px solid #e4eaec;
 }
-
 .verificationCode {
     width: 34px;
     height: 26px;
@@ -138,18 +126,16 @@ hr {
     font-weight: bold;
     border: 1px solid #bebebe;
 }
-
-.note {
+.note{
     font-weight: bold;
 }
-
 .bottom {
-    box-sizing: border-box;
     position: relative;
-    height: 35px;
-    margin-top: 25px;
+    top: 20px;
+    width: 100%;
+    height: 20px;
+    margin-top: 58px ;
 }
-
 .cancelBtn {
     width: 42px;
     height: 35px;
@@ -163,7 +149,6 @@ hr {
     cursor: pointer;
     margin-right: 2px;
 }
-
 .nextBtn {
     width: 42px;
     height: 35px;

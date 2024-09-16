@@ -8,7 +8,7 @@ logging:
             sqltiming: debug
         root: info
 server:
-    port: 8080
+    port: 8082
     servlet:
         context-path: /Farmstory
 spring:
@@ -17,7 +17,7 @@ spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: 1234
-        url: jdbc:mysql://localhost:3306/jboard
+        url: jdbc:mysql://localhost:3306/farmstory
         username: root
     devtools:
         livereload:

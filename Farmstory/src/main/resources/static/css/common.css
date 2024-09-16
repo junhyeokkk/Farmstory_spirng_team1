@@ -79,24 +79,6 @@
 }
 .aside_bg .cate_lnb_real li a:hover{background: url('../images/sub_cate2_lnb1_ov.png') no-repeat; }
 
-/* article 영역 (오른쪽)  ---------------------------------------------- */
-.article{position: relative; float:left; width: 802px; height: auto;}
-.articleIn{width: 802px; margin-left: 40px;}
-
-/* article 타이틀 */
-h2{margin-top: 43px; }
-h2::after{display: block; content: ""; clear: both; width: 762px; height: 1px; background: #c2c2c2; margin-top: 5px;}
-
-/* location */
-.location{position: absolute; top: 0; right:0; float:right; margin-top:51px; height: 17px; font-family: Inter; font-size: 12px; font-weight: 400; line-height: 14.52px; text-align: left;}
-.location img{margin-top: 5px;}
-.location span{color:#0a0101;}
-.location span:after{display: inline-block; content: ">" ; clear: both;}
-
-/* location 현재페이지 강조 */
-.location strong{color:#91ba15; font-weight: 700;}
-
-
 /* footer */
 #footer{width: 100%; height: auto; }
 .footerIn{width: 980px; height: 130px; margin: 0 auto; background: url('../images/footer_top_line.png') 0 -4px no-repeat;}

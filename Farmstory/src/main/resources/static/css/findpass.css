@@ -1,79 +1,64 @@
-.findid-section {
+section {
     width: 600px;
     height: 286px;
     margin: 0 auto;
-    margin-top: 76px;
-    box-sizing: border-box;
+    margin-top: 60px;
     margin-bottom: 60px;
+    box-sizing: border-box;
 }
-
-
-
-.findid-section > h2{
+h2 {
+    height: 12px;
+    font-size: 12px;
+    margin: 5px;
     padding-top: 16px;
     padding-bottom: 8px;
-    box-sizing: border-box;
-    font-size: 12px;
-    line-height: 12px;
+    font-weight: bold;
 }
-
 hr {
-    border: solid   1px #111111;
+    border: solid 1px black;
 }
-
 .table {
     width: 600px;
-    height: 136px;
+    height: 138px;
     margin-bottom: 15px;
 }
-
-.table > div:nth-child(1) {
+.table > div:nth-child(1){
     width: 120px;
     height: 49px;
-    border: 1px solid #e9e9e9;
+    border : 1px solid #E9E9E9;
     box-sizing: border-box;
     position: relative;
 }
-
 .table > div:nth-child(2) {
     width: 479px;
     height: 49px;
-    border: 1px solid #e9e9e9;
+    border : 1px solid #E9E9E9;
     box-sizing: border-box;
-    position: relative;
-    left: 120px;
-    bottom: 49px;
+    position: relative; left: 120px; bottom: 49px;
 }
-
 .table > div:nth-child(3) {
     width: 120px;
     height: 87px;
-    border: 1px solid #e9e9e9;
+    border : 1px solid #E9E9E9;
     box-sizing: border-box;
-    position: relative;
-    bottom: 49.5px;
+    position: relative; bottom: 49.5px;
 }
-
 .table > div:nth-child(4) {
     width: 479px;
     height: 87px;
-    border: 1px solid #e9e9e9;
+    border : 1px solid #E9E9E9;
     box-sizing: border-box;
-    position: relative;
-    left: 120px;
-    bottom: 136.5px;
+    position: relative; left:120px; bottom: 136.5px;
 }
-
-.name {
-    width: 24px;
+.id {
+    width: 40px;
     height: 14px;
     position: absolute;
     top: 16px;
     left: 14px;
     font-weight: bold;
 }
-
-.nametext {
+.idtext {
     width: 164px;
     height: 24px;
     position: absolute;
@@ -81,10 +66,9 @@ hr {
     left: 14px;
     padding-left: 7px;
     font-weight: bold;
-    background-color: #f7f7f7;
-    border: 1px solid #e4eaec;
+    background-color: #F7F7F7;
+    border: 1px solid #E4EAEC;
 }
-
 .email {
     width: 36px;
     height: 14px;
@@ -94,7 +78,6 @@ hr {
     box-sizing: border-box;
     font-weight: bold;
 }
-
 .emailtext {
     width: 164px;
     height: 24px;
@@ -103,10 +86,9 @@ hr {
     left: 14px;
     padding-left: 7px;
     font-weight: bold;
-    background-color: #f7f7f7;
-    border: 1px solid #e4eaec;
+    background-color: #F7F7F7;
+    border: 1px solid #E4EAEC;
 }
-
 .getCodeBtn {
     width: 85px;
     height: 26px;
@@ -114,9 +96,8 @@ hr {
     top: 12px;
     left: 190px;
     font-weight: bold;
-    border: 1px solid #bebebe;
+    border: 1px solid #BEBEBE;
 }
-
 .verificationCodetext {
     width: 164px;
     height: 24px;
@@ -125,10 +106,9 @@ hr {
     left: 14px;
     padding-left: 7px;
     font-weight: bold;
-    background-color: #f7f7f7;
-    border: 1px solid #e4eaec;
+    background-color: #F7F7F7;
+    border: 1px solid #E4EAEC;
 }
-
 .verificationCode {
     width: 34px;
     height: 26px;
@@ -136,20 +116,18 @@ hr {
     top: 45px;
     left: 190px;
     font-weight: bold;
-    border: 1px solid #bebebe;
+    border: 1px solid #BEBEBE;
 }
-
-.note {
+.note{
     font-weight: bold;
 }
-
 .bottom {
-    box-sizing: border-box;
     position: relative;
-    height: 35px;
-    margin-top: 25px;
+    top: 20px;
+    width: 100%;
+    height: 20px;
+    margin-top: 58px ;
 }
-
 .cancelBtn {
     width: 42px;
     height: 35px;
@@ -158,12 +136,11 @@ hr {
     right: 44px;
     bottom: 0px;
     justify-content: center;
-    border: 1px solid #bebebe;
+    border: 1px solid #BEBEBE;
     background-color: white;
     cursor: pointer;
     margin-right: 2px;
 }
-
 .nextBtn {
     width: 42px;
     height: 35px;
@@ -171,7 +148,7 @@ hr {
     right: 1px;
     bottom: 0px;
     justify-content: center;
-    border: 1px solid #bebebe;
+    border: 1px solid #BEBEBE;
     background-color: white;
     cursor: pointer;
 }
