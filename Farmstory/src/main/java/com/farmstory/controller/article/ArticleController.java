@@ -37,6 +37,7 @@ public class ArticleController {
 
         CateDTO cate = categoryService.selectCategory(group,cateName);
         int cateNo = cate.getCateNo();
+        log.info("cate : "+cate);
         //300번대 = croptalk ,  500대 = community
         List<ArticleDTO> articles = null;
         if ((cateNo >= 300 && cateNo < 400) || (cateNo >= 500 && cateNo < 600)) {
@@ -57,8 +58,8 @@ public class ArticleController {
             log.info("startpage : "+startPage);
             log.info("endpage : "+endPage);
 
-            model.addAttribute("cate", cate);
-            model.addAttribute("content", content);
+
+
             model.addAttribute("articles",articles);
 
             model.addAttribute("currentPage", currentPage);
@@ -67,7 +68,8 @@ public class ArticleController {
             model.addAttribute("totalPages", totalPages);
 
         }
-
+        model.addAttribute("cate", cate);
+        model.addAttribute("content", content);
 
         return "boardIndex";
 

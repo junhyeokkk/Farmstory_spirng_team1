@@ -25,15 +25,15 @@
 
 .list table th {
     padding: 12px;
-    border-top: 1px solid #EBEDE3FF;
-    border-bottom: 1px solid #dde2d1;
-    background: rgba(249, 251, 244, 0.73);
-    color: #383838;
+    border-top: 1px solid #9d9a92;
+    border-bottom: 1px solid #9d9a92;
+    background: #e6e2d4;
+    color: #171513;
 }
 .list table td {
     padding: 12px 6px;
-    border-top: 1px solid #dde2d1;
-    border-bottom: 1px solid #dde2d1;
+    border-top: 1px solid #2c5f2d;
+    border-bottom: 1px solid #f2f2f2;
 }
 .list table tr > th:nth-child(1) {width:  50px; text-align: center;}
 .list table tr > th:nth-child(2) {width:  auto; text-align: left;}
