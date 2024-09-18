@@ -1,4 +1,4 @@
-package com.farmstory.controller.article;
+package com.farmstory.controller;
 
 import com.farmstory.dto.CateDTO;
 import com.farmstory.service.CategoryService;
