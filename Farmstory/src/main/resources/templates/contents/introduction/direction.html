@@ -1,4 +1,9 @@
 <link rel="stylesheet" th:href="@{/css/introduction.css}">
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeMap();
+    });
+</script>
     <div class="direc_detail">
       <p>팜스토리</p>
       <p>
@@ -7,23 +12,22 @@
       <p>찾아오시는 길</p>
       <div id="map" style="width: 762px; height: 400px;" class="map"></div>
     </div>
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=861eab31626b5ffc3da70a0341aad34e"></script>
-    <script>
-      var container = document.getElementById('map');
-      var options = {
-        center: new kakao.maps.LatLng(35.1596124, 129.0601826),
-        level: 2
-      };
+<!--    <script>-->
+<!--      var container = document.getElementById('map');-->
+<!--      var options = {-->
+<!--        center: new kakao.maps.LatLng(35.1596124, 129.0601826),-->
+<!--        level: 2-->
+<!--      };-->
 
-      var map = new kakao.maps.Map(container, options);
+<!--      var map = new kakao.maps.Map(container, options);-->
 
-      var markerPosition = new kakao.maps.LatLng(35.1596124, 129.0601826);
+<!--      var markerPosition = new kakao.maps.LatLng(35.1596124, 129.0601826);-->
 
-      // 마커를 생성합니다
-      var marker = new kakao.maps.Marker({
-        position: markerPosition
-      });
+<!--      // 마커를 생성합니다-->
+<!--      var marker = new kakao.maps.Marker({-->
+<!--        position: markerPosition-->
+<!--      });-->
 
-      // 마커가 지도 위에 표시되도록 설정합니다
-      marker.setMap(map);
-    </script>
+<!--      // 마커가 지도 위에 표시되도록 설정합니다-->
+<!--      marker.setMap(map);-->
+<!--    </script>-->

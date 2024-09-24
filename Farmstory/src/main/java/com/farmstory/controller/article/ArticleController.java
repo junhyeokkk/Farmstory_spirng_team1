@@ -3,19 +3,22 @@ package com.farmstory.controller.article;
 import com.farmstory.dto.ArticleDTO;
 import com.farmstory.dto.CateDTO;
 import com.farmstory.entity.Article;
-import com.farmstory.service.ArticleService;
-import com.farmstory.service.CategoryService;
-import com.farmstory.service.PageService;
+import com.farmstory.service.*;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -26,6 +29,8 @@ public class ArticleController {
     private final ArticleService articleService;
     private final CategoryService categoryService;
     private final PageService pageService;
+    private final UserService userService;
+    private final EmailService emailService;
 
 
     @GetMapping("/{cateGroup}/{cateName}")
@@ -90,6 +95,9 @@ public class ArticleController {
        model.addAttribute("article", articleDTO);
         return "boardIndex";
     }
+
+
+
 
 
 

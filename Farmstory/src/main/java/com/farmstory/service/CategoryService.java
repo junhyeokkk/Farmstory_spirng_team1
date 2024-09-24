@@ -1,6 +1,6 @@
 package com.farmstory.service;
 
-import com.farmstory.dao.CateRepository;
+import com.farmstory.repository.CateRepository;
 import com.farmstory.dto.CateDTO;
 import com.farmstory.entity.Cate;
 import lombok.RequiredArgsConstructor;

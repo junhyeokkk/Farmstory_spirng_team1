@@ -9,12 +9,16 @@
   <link rel="shortcut icon" th:href="@{/images/fav.ico}" type="image/x-icon">
   <link rel="stylesheet" th:href="@{/css/reset.css}">
   <link rel="stylesheet" th:href="@{/css/common.css}">
+  <script type="text/javascript" th:src="@{/js/utils.js}"></script>
+  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=861eab31626b5ffc3da70a0341aad34e"></script>
+
   <th:block th:switch="${cate.cateGroup}">
     <link th:case="'introduction'" rel="stylesheet" th:href="@{/css/introduction.css}">
     <link th:case="'community'" rel="stylesheet" th:href="@{/css/community.css}">
     <link th:case="'croptalk'" rel="stylesheet" th:href="@{/css/croptalk.css}">
     <link th:case="'myinfo'" rel="stylesheet" th:href="@{/css/myinfo.css}">
     <link th:case="'user'" rel="stylesheet" th:href="@{/css/user.css}">
+
   </th:block>
 
   <link th:if="${cate.cateGroup != 'user'}" rel="stylesheet" th:href="@{/css/articleCommon.css}">

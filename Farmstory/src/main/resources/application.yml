@@ -13,7 +13,8 @@ server:
         context-path: /Farmstory
 spring:
     application:
-        name: Board
+        name: FarmStory
+        version: ${version}
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: 1234
@@ -38,5 +39,18 @@ spring:
         enabled: true
         prefix: classpath:/templates/
         suffix: .html
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: loveu9911111
+        password: tolkhjolmorzszso
+        properties:
+            mail:
+                smtp:
+                    port: 587
+                    auth: true
+                    timeout: 5000
+                    starttls:
+                        enable: true
 
 

@@ -1,4 +1,4 @@
-package com.farmstory.dao;
+package com.farmstory.repository;
 
 import com.farmstory.entity.Cate;
 import org.springframework.data.jpa.repository.JpaRepository;
