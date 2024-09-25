@@ -215,7 +215,7 @@ window.onload = function (){
     // }
 
     // 최종 유효성 검사 확인
-    document.registerForm.onsubmit = function (){
+    document.registerForm.onsubmit =  function (){
 
         if(!isUidOk){
             alertModal('아이디가 유효하지 않습니다.');

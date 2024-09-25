@@ -1,7 +1,9 @@
 package com.farmstory.controller;
 
+import com.farmstory.dto.UserDTO;
 import com.farmstory.service.EmailService;
 import com.farmstory.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.java.Log;
@@ -15,13 +17,26 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@Controller
 @Log4j2
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
     private final EmailService emailService;
+
+
+    @PostMapping("/user/register")
+    public String register(UserDTO userDTO, HttpServletRequest req) {
+        if(userDTO ==null){
+            return "redirect:/category/user/register?success=300";
+        }
+        String regip = req.getParameter("regip");
+        userDTO.setRegip(regip);
+        UserDTO savedUser = userService.insertUser(userDTO);
+        return "redirect:/category/user/login?success=200";
+    }
+
 
     @ResponseBody
     @GetMapping("/user/{type}/{value}")
