@@ -11,6 +11,26 @@
 .login > form {
 
 }
+
+.login .sns{
+    position: relative;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-left: 109px;
+    display:block;
+}
+.login .sns a{
+    display: block;
+}
+.login .sns a:nth-child(1) > img:nth-child(1){
+    height: 30px;
+    margin-bottom: 5px;
+}
+.login .sns a:nth-child(2) > img:nth-child(1){
+    border-radius: 50px;
+    height: 30px;
+    width: 131px;
+}
 .login table {
     margin-left: 52px;
     margin-top: 30px;
@@ -69,6 +89,7 @@
 .login > div >a:first-child:after{
     content :'';
 }
+
 
 
 /*!* 회원가입 *!*/
