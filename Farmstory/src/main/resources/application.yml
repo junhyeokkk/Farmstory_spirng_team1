@@ -17,9 +17,9 @@ spring:
         version: ${version}
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password: 1234
-        url: jdbc:mysql://localhost:3306/farmstory
-        username: root
+        password: Qwe123!`
+        url: jdbc:mysql://52.79.87.164:3306/farmstory
+        username: farmstory
     devtools:
         livereload:
             enabled: true

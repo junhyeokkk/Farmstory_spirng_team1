@@ -1,4 +1,4 @@
-package com.farmstory.controller;
+package com.farmstory.controller.user;
 
 import com.farmstory.dto.UserDTO;
 import com.farmstory.service.EmailService;
@@ -6,7 +6,6 @@ import com.farmstory.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

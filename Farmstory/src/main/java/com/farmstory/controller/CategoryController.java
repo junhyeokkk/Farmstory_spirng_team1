@@ -37,16 +37,21 @@ public class CategoryController {
         }
 
 
-
-
         // 조회한 카테고리 정보를 모델에 추가
         model.addAttribute("cate", cate);
         model.addAttribute("content", content);
+
+        if(group.equals("admin")){
+            return "admin_index";
+        }
 
         return "boardIndex";
 
 
     }
+
+
+
 
 
 
