@@ -16,6 +16,6 @@ public class PageService {
 
 
     public Page<Article> getArticles(int cateNo, Pageable pageable) {
-        return  articleRepository.findByCate_CateNo(cateNo,pageable);
+        return  articleRepository.findByCateNo(cateNo,pageable);
     }
 }

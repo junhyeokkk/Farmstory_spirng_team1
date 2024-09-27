@@ -2,8 +2,11 @@ package com.farmstory.controller.article;
 
 import com.farmstory.dto.ArticleDTO;
 import com.farmstory.dto.CateDTO;
+import com.farmstory.dto.PageRequestDTO;
+import com.farmstory.dto.PageResponseDTO;
 import com.farmstory.entity.Article;
 import com.farmstory.service.*;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -38,39 +41,33 @@ public class ArticleController {
                            @PathVariable("cateName") String cateName,
                            @RequestParam(value = "content", required = false) String content,
                            @RequestParam(value ="page", defaultValue = "0") int page,
+                           PageRequestDTO pageRequestDTO,
                            Model model){
 
+        log.info("pageReqestDTO"+pageRequestDTO);
+        log.info("cateGroup "+group+"cateName "+cateName);
         CateDTO cate = categoryService.selectCategory(group,cateName);
+
+        log.info(cate);
         int cateNo = cate.getCateNo();
+        pageRequestDTO.setCateNo(cateNo);
         log.info("cate : "+cate);
         //300번대 = croptalk ,  500대 = community
         List<ArticleDTO> articles = null;
         if ((cateNo >= 300 && cateNo < 400) || (cateNo >= 500 && cateNo < 600)) {
 
-            Pageable pageable = PageRequest.of(page, 10);
-            Page<Article> articlePage = pageService.getArticles(cateNo, pageable);
-            articles = articlePage.getContent().stream().map(article -> article.toDTO()).toList();
-            log.info(articles);
+            PageResponseDTO pageResponseDTO = articleService.getAllArticles(pageRequestDTO,cateNo);
 
-            int totalPages = articlePage.getTotalPages();
-            int currentPage = page;
+            log.info("start : "+pageResponseDTO.getStart());
+            log.info("end : " +pageResponseDTO.getEnd());
 
-            log.info(page);
-            // 페이지 네비게이션 범위 계산 (한 번에 5개 페이지 링크 표시)
-            int startPage = Math.max(0, currentPage - 2); // 현재 페이지에서 앞쪽 2개까지 표시
-            int endPage = Math.max(0, Math.min(totalPages - 1, currentPage + 2));
-
-            log.info("startpage : "+startPage);
-            log.info("endpage : "+endPage);
+            log.info(pageResponseDTO.getDtoList());
 
 
 
-            model.addAttribute("articles",articles);
 
-            model.addAttribute("currentPage", currentPage);
-            model.addAttribute("startPage", startPage);
-            model.addAttribute("endPage", endPage);
-            model.addAttribute("totalPages", totalPages);
+            model.addAttribute("articles",pageResponseDTO);
+
 
         }
         model.addAttribute("cate", cate);
@@ -94,6 +91,21 @@ public class ArticleController {
        model.addAttribute("content", content);
        model.addAttribute("article", articleDTO);
         return "boardIndex";
+    }
+
+
+    @PostMapping("/{cateNo}/writer")
+    public String writer(@PathVariable("cateNo") int cateNo,ArticleDTO articleDTO, HttpServletRequest req){
+        CateDTO cate = categoryService.selectCateNo(cateNo);
+        articleDTO.setCateNo(cate.getCateNo());
+        articleDTO.setRegIp(req.getRemoteAddr());
+
+         ArticleDTO savedArticle= articleService.insertArticle(articleDTO,cateNo);
+
+         if(savedArticle ==null){
+             return "redirect:/article/"+cate.getCateGroup()+"/"+cate.getCateName()+"?content=write&success=300";
+         }
+        return "redirect:/article/"+cate.getCateGroup()+"/"+cate.getCateName()+"?content=list";
     }
 
 
