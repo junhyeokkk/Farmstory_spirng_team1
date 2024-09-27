@@ -45,6 +45,10 @@ spring:
         enabled: true
         prefix: classpath:/templates/
         suffix: .html
+    servlet:
+        multipart:
+            location: uploads/
+            max-file-size: 10MB
     mail:
         host: smtp.gmail.com
         port: 587
