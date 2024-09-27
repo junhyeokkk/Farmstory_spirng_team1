@@ -1,6 +1,7 @@
 package com.farmstory.controller.user;
 
 import com.farmstory.dto.UserDTO;
+import com.farmstory.entity.User;
 import com.farmstory.service.EmailService;
 import com.farmstory.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/api/user")
 @Log4j2
 @RequiredArgsConstructor
 public class UserController {
@@ -116,7 +116,7 @@ public class UserController {
 
 
     // 아이디 찾기: 이름과 이메일을 입력받아 인증번호를 *이메일로 전송 ("/findid") 괄호 안 경로
-    @PostMapping("/findid")
+    @PostMapping("/api/user/findid")
     public ResponseEntity<?> findUserIdByNameAndEmail(HttpSession session, @RequestBody Map<String, String> jsonData) {
         String name = jsonData.get("name");
         String email = jsonData.get("email");
@@ -129,7 +129,7 @@ public class UserController {
     }
 
     // 이메일 인증 코드 검증 후 아이디 반환
-    @PostMapping("/findidresult")
+    @PostMapping("/api/user/findidresult")
     public ResponseEntity<?> verifyEmailCode(HttpSession session, @RequestBody Map<String, String> jsonData) {
         String verificationCode = jsonData.get("code");
         String name = jsonData.get("name");
@@ -145,12 +145,12 @@ public class UserController {
                 && sessionName.equals(name) && sessionEmail.equals(email)) {
 
             // 인증 성공: 유저 아이디 반환
-            String uid = userService.verifyCodeForUid(verificationCode, name, email);
+            User user = userService.verifyCodeForUser(verificationCode, name, email);
 
             // 성공 응답
-            Map<String, Object> resultMap = new HashMap<>();
-            resultMap.put("Uid", uid);
-            return ResponseEntity.ok(resultMap);
+            session.setAttribute("user", user);
+
+            return ResponseEntity.status(HttpStatus.OK).build();
 
         } else {
             // 실패 응답
@@ -159,19 +159,4 @@ public class UserController {
             return ResponseEntity.badRequest().body(resultMap);
         }
     }
-
-
-
-    @GetMapping("/findid")
-    public String showFindIdPage() {
-        return "contents/user/findid";  // 템플릿 경로: src/main/resources/templates/contents/user/findid.html
-    }
-
-    @GetMapping("/findidresult")
-    public String showFindIdResultPage() {
-        return "contents/user/findidresult";  // 템플릿 경로: src/main/resources/templates/contents/user/findidresult.html
-    }
-
-
-
 }
