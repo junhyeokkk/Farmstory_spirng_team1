@@ -37,6 +37,8 @@ public class Product {
     private List<pDescImgFile> pList_fNo;
 
     // 외래키 컬럼
-    private String prodCateNo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="prodCateNo")
+    private prodCate prodCateNo;
 
 }
