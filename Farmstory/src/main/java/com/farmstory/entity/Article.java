@@ -5,11 +5,14 @@ import com.farmstory.dto.CateDTO;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @ToString
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -20,27 +23,29 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int articleNo;   //board no  autoincrement
 
-    @ManyToOne
-    @JoinColumn(name ="cateNo")
-    private Cate cate;
+    private int cateNo;
     private String title;  //제목
     private String content;  //내용
     private String writer;  //작성자
-
     @CreationTimestamp
     private LocalDateTime date;   //작성일 now()
     private String regIp;   //작성자i
-
     //default 0 or null
-    private String file;
-    private String hit;
-    private String comNo;
+    private int file;
+    private int hit;
+    private int com;
+
+    //추가필드
+    @Transient
+    private String nick;
+
+
 
 
     public ArticleDTO toDTO(){
         return ArticleDTO.builder()
                 .articleNo(articleNo)
-                .cate(cate)
+                .cateNo(cateNo)
                 .title(title)
                 .content(content)
                 .writer(writer)
@@ -48,7 +53,7 @@ public class Article {
                 .regIp(regIp)
                 .file(file)
                 .hit(hit)
-                .comNo(comNo)
+                .com(com)
                 .build();
     }
 

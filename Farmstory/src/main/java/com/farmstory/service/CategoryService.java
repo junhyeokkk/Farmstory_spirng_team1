@@ -29,6 +29,18 @@ public class CategoryService {
 
     }
 
+    public CateDTO selectCateNo(int cateNO){
+        Optional<Cate> cate = cateRepository.findById(cateNO);
+
+        log.info(cate);
+        if(cate.isPresent()){
+            CateDTO cateDTO = cate.get().toDTO();
+            return cateDTO;
+        }
+
+        return null;
+    }
+
 
 //    public CateDTO findByGroupAndName(String group, String name) {
 //

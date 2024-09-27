@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/api/user")
 @Log4j2
 @RequiredArgsConstructor
 public class UserController {

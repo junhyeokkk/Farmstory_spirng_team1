@@ -70,6 +70,39 @@
     right: 0;
 }
 
+
+
+.list > #search_input{
+    overflow: hidden;
+    box-sizing: border-box;
+    height: auto;
+}
+.list > #search_input > .listTit{
+    float: left;
+    padding-top: 7px;
+}
+
+.list > #search_input > .search{
+    float: right;
+    height: auto;
+
+}
+.list  .search > select.select_type{
+    height: 25px;
+}
+.list  .search > input[type="text"] {
+    height: 22px;
+    width: 180px;
+}
+.list  .search > input.keySubmit{
+    height: 25px;
+    width: 40px;
+}
+
+
+
+
+
 /* 글쓰기 */
 .write {
     position: relative;
