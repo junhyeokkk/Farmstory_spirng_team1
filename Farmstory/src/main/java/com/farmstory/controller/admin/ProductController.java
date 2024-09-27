@@ -25,20 +25,24 @@ public class ProductController {
     @PostMapping("/admin/register")
     public String register(ProductDTO productDTO) {
 
+        log.info("register product : "  + productDTO.toString());
+        log.info("register product : "  + productDTO.getProdCateNo());
+
         // 파일 업로드
-        List<pDescImgFileDTO> uploadFiles = descImgFileService.uploadpDescImgFile(productDTO);
+        pDescImgFileDTO uploadFile = descImgFileService.uploadpDescImgFile(productDTO);
+        log.info("uploadeFIle : " + uploadFile.toString());
 
         // 상품 저장
         int PNo = productService.insertProduct(productDTO);
 
         log.info("nono" + PNo);
-        // 이미지 저장
-        for(pDescImgFileDTO pDescImgFileDTO : uploadFiles) {
-            pDescImgFileDTO.setPNo(PNo);
-            descImgFileService.insertpDescImgFile(pDescImgFileDTO);
-        }
 
-        log.info("uploadFiles" + uploadFiles);
+        // 이미지 저장 (이미지 파일 1개기 때문에 그냥 바로 저장 처리)
+        uploadFile.setPNo(PNo);
+        descImgFileService.insertpDescImgFile(uploadFile);
+
+
+        log.info("uploadFile" + uploadFile);
 
         return "/admin/main";
     }

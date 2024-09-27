@@ -23,12 +23,18 @@ public class ProductDTO {
     private String pDesc;
 
     // 업로드 전용
-    private List<MultipartFile> files;
+    private MultipartFile files1;
+    private MultipartFile files2;
+    private MultipartFile files3;
 
     // product 이미지 파일 리스트
     private List<pDescImgFileDTO> pList_fNo;
 
     // 외래키 컬럼
     private String prodCateNo;
+
+    public List<MultipartFile> getMultipartFiles(){
+        return List.of(files1,files2,files3);
+    }
 
 }

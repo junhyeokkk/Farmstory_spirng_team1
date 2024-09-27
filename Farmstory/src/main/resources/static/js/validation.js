@@ -34,7 +34,7 @@ window.onload = function (){
         }
 
         setTimeout(async () => {
-            const data = await fetchGet(`/Farmstory/user/${type}/${value}`);
+            const data = await fetchGet(`/user/${type}/${value}`);
             if(data.result > 0){
                 showResultInvalid(resultUid, '이미 사용 중인 아이디 입니다.');
                 isUidOk = false;
@@ -103,7 +103,7 @@ window.onload = function (){
 
         setTimeout(async () => {
 
-            const data = await fetchGet(`/Farmstory/user/${type}/${value}`);
+            const data = await fetchGet(`/user/${type}/${value}`);
             console.log(data);
             if(data.result > 0){
                 showResultInvalid(resultNick, '이미 사용중인 닉네임 입니다.');
@@ -136,7 +136,7 @@ window.onload = function (){
 
         // 이메일 인증코드 발급 및 중복체크
         setTimeout(async () => {
-            const data = await fetchGet(`/Farmstory/user/${type}/${value}`);
+            const data = await fetchGet(`/user/${type}/${value}`);
             console.log('data : ' + data.result);
 
             if(data.result > 0){
@@ -160,7 +160,7 @@ window.onload = function (){
 
         const jsonData = {"code": inputEmailCode.value};
 
-        const data = await fetchPost(`/Farmstory/email`, jsonData);
+        const data = await fetchPost(`/email`, jsonData);
 
         if(!data.result){
             showResultInvalid(resultEmail, '인증코드가 일치하지 않습니다.');
@@ -188,7 +188,7 @@ window.onload = function (){
         }
 
         setTimeout(async () => {
-            const data = await fetchGet(`/Farmstory/user/${type}/${value}`);
+            const data = await fetchGet(`/user/${type}/${value}`);
 
             if(data.result > 0){
                 showResultInvalid(resultHp, '이미 사용중인 휴대폰 입니다.');

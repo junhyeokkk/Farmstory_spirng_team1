@@ -32,7 +32,7 @@ public class Product {
     private LocalDate rdate;
     private String pDesc;
 
-    // product 이미지 파일 리스트
+    // product 이미지 파일 리스트 <<지워도됨>>
     @OneToMany(mappedBy = "pfNo")
     private List<pDescImgFile> pList_fNo;
 

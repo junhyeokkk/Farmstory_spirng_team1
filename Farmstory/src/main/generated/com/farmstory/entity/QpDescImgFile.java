@@ -19,11 +19,11 @@ public class QpDescImgFile extends EntityPathBase<pDescImgFile> {
 
     public static final QpDescImgFile pDescImgFile = new QpDescImgFile("pDescImgFile");
 
-    public final NumberPath<Integer> imageType = createNumber("imageType", Integer.class);
+    public final StringPath p_sName1 = createString("p_sName1");
 
-    public final StringPath p_oName = createString("p_oName");
+    public final StringPath p_sName2 = createString("p_sName2");
 
-    public final StringPath p_sName = createString("p_sName");
+    public final StringPath p_sName3 = createString("p_sName3");
 
     public final NumberPath<Integer> pfNo = createNumber("pfNo", Integer.class);
 
