@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+@RequestMapping("/api/user")
 @Log4j2
 @RequiredArgsConstructor
 public class UserController {
@@ -37,6 +39,7 @@ public class UserController {
     }
 
 
+    // 회원가입 또는 아이디 찾기에서 이메일을 입력받아 인증번호 전송
     @ResponseBody
     @GetMapping("/user/{type}/{value}")
     public ResponseEntity<?> checkUser(@PathVariable("type")  String type,
@@ -46,7 +49,9 @@ public class UserController {
         int count = userService.selectCountUserByType(type,value);
 
         log.info("count : "+count);
-        //해당되는 유저가 없는 email일때,
+
+        //해당되는 유저가 없는 email일때
+        // 이메일 인증이 필요한 경우 (회원가입 시 이메일이 중복되지 않거나, 아이디 찾기에서 유효한 이메일일 때),
         if(type.equals("email") && count == 0){
             LocalDateTime requestedAt = LocalDateTime.now();
             String code = emailService.sendMail(value, "/contents/user/email.html",session);
@@ -101,4 +106,72 @@ public class UserController {
 
 
     }
+
+
+
+
+
+
+
+
+
+    // 아이디 찾기: 이름과 이메일을 입력받아 인증번호를 *이메일로 전송 ("/findid") 괄호 안 경로
+    @PostMapping("/findid")
+    public ResponseEntity<?> findUserIdByNameAndEmail(HttpSession session, @RequestBody Map<String, String> jsonData) {
+        String name = jsonData.get("name");
+        String email = jsonData.get("email");
+
+        // 아이디 찾기 서비스 호출
+        userService.receiveCode(name, email);
+        log.info("저장한 세션 : {}", session.getAttribute("code"));
+        // 응답으로 인증번호 발송 완료 메시지 전송
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    // 이메일 인증 코드 검증 후 아이디 반환
+    @PostMapping("/findidresult")
+    public ResponseEntity<?> verifyEmailCode(HttpSession session, @RequestBody Map<String, String> jsonData) {
+        String verificationCode = jsonData.get("code");
+        String name = jsonData.get("name");
+        String email = jsonData.get("email");
+
+        // 세션에서 인증번호 및 사용자 정보 가져오기
+        String sessionCode = (String) session.getAttribute("code");
+        String sessionName = (String) session.getAttribute("name");
+        String sessionEmail = (String) session.getAttribute("email");
+
+        // 인증번호 및 사용자 정보 검증
+        if (sessionCode != null && sessionCode.equals(verificationCode)
+                && sessionName.equals(name) && sessionEmail.equals(email)) {
+
+            // 인증 성공: 유저 아이디 반환
+            String uid = userService.verifyCodeForUid(verificationCode, name, email);
+
+            // 성공 응답
+            Map<String, Object> resultMap = new HashMap<>();
+            resultMap.put("Uid", uid);
+            return ResponseEntity.ok(resultMap);
+
+        } else {
+            // 실패 응답
+            Map<String, Object> resultMap = new HashMap<>();
+            resultMap.put("message", "인증번호가 일치하지 않거나 사용자 정보가 올바르지 않습니다.");
+            return ResponseEntity.badRequest().body(resultMap);
+        }
+    }
+
+
+
+    @GetMapping("/findid")
+    public String showFindIdPage() {
+        return "contents/user/findid";  // 템플릿 경로: src/main/resources/templates/contents/user/findid.html
+    }
+
+    @GetMapping("/findidresult")
+    public String showFindIdResultPage() {
+        return "contents/user/findidresult";  // 템플릿 경로: src/main/resources/templates/contents/user/findidresult.html
+    }
+
+
+
 }
