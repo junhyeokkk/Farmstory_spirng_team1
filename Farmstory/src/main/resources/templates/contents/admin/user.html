@@ -15,61 +15,35 @@
                             <th>가입일</th>
                             <th>확인</th>
                         </tr>
-                        <tr>
+
+                        <tr th:each="user , i:${userPageResponseDTO.getUserList()}">
                             <td><input type="checkbox"></td>
-                            <td>a101</td>
-                            <td>김유신</td>
-                            <td>유신101</td>
-                            <td>yusin101@naver.com</td>
-                            <td>010-1234-1001</td>
+                            <td>[[${user.uid}]]</td>
+                            <td>[[${user.name}]]</td>
+                            <td>[[${user.nick}]]</td>
+                            <td>[[${user.email}]]</td>
+                            <td>[[${user.hp}]]</td>
                             <td>
                                 <select name="grade">
                                     <option value="등급">2</option>
                                 </select>
                             </td>
-                            <td>2023-01-01 13:06:14</td>
+                            <td>[[${user.regDate}]]</td>
                             <td><a href="#">[상세확인]</a></td>
                         </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>a102</td>
-                            <td>김춘추</td>
-                            <td>춘추102</td>
-                            <td>chunchu102@naver.com</td>
-                            <td>010-1234-1002</td>
-                            <td>
-                                <select name="grade">
-                                    <option value="등급">2</option>
-                                </select>
-                            </td>
-                            <td>2023-01-01 13:06:14</td>
-                            <td><a href="#">[상세확인]</a></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>a103</td>
-                            <td>장보고</td>
-                            <td>보고103</td>
-                            <td>bogo103@naver.com</td>
-                            <td>010-1234-1003</td>
-                            <td>
-                                <select name="grade">
-                                    <option value="등급">2</option>
-                                </select>
-                            </td>
-                            <td>2023-01-01 13:06:14</td>
-                            <td><a href="#">[상세확인]</a></td>
-                        </tr>
+
                     </table>
                 </div>
                 <div id="list_num">
-                    <a><</a>
-                    <a href="#">[1]</a>
-                    <a href="#">[2]</a>
-                    <a href="#">[3]</a>
-                    <a href="#">[4]</a>
-                    <a href="#">[5]</a>
-                    <a>></a>
+                    <th:block th:if="${userPageResponseDTO.prev}">
+                        <a><</a>
+                    </th:block>
+                    <th:block th:each="num:${#numbers.sequence(userPageResponseDTO.start, userPageResponseDTO.end)}">
+                        <a href="#">&#91;[[${num}]]&#93;</a>
+                    </th:block>
+                    <th:block th:if="${userPageResponseDTO.next}">
+                        <a>></a>
+                    </th:block>
                 </div>
             </div>
         </div>
