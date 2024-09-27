@@ -1,5 +1,8 @@
 package com.farmstory.dto;
 
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.util.List;
@@ -26,5 +29,4 @@ public class ProductDTO {
 
     // 외래키 컬럼
     private String prodCateNo;
-
 }

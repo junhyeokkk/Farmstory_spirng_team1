@@ -18,6 +18,8 @@ public class QProduct extends EntityPathBase<Product> {
 
     private static final long serialVersionUID = 1617704160L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QProduct product = new QProduct("product");
 
     public final NumberPath<Integer> delivery = createNumber("delivery", Integer.class);
@@ -36,22 +38,31 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 
-    public final StringPath prodCateNo = createString("prodCateNo");
+    public final QprodCate prodCateNo;
 
     public final DatePath<java.time.LocalDate> rdate = createDate("rdate", java.time.LocalDate.class);
 
     public final NumberPath<Integer> stock = createNumber("stock", Integer.class);
 
     public QProduct(String variable) {
-        super(Product.class, forVariable(variable));
+        this(Product.class, forVariable(variable), INITS);
     }
 
     public QProduct(Path<? extends Product> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QProduct(PathMetadata metadata) {
-        super(Product.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QProduct(PathMetadata metadata, PathInits inits) {
+        this(Product.class, metadata, inits);
+    }
+
+    public QProduct(Class<? extends Product> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.prodCateNo = inits.isInitialized("prodCateNo") ? new QprodCate(forProperty("prodCateNo")) : null;
     }
 
 }
