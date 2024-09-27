@@ -32,11 +32,9 @@ public class Product {
     private LocalDate rdate;
     private String pDesc;
 
-    // product 이미지 파일 리스트 <<지워도됨>>
-    @OneToMany(mappedBy = "pfNo")
-    private List<pDescImgFile> pList_fNo;
-
     // 외래키 컬럼
-    private String prodCateNo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="prodCateNo")
+    private prodCate prodCateNo;
 
 }
