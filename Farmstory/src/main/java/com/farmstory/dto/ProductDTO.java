@@ -1,6 +1,7 @@
 package com.farmstory.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -20,6 +21,9 @@ public class ProductDTO {
     private int delivery;
     private String rdate;
     private String pDesc;
+
+    // 업로드 전용
+    private List<MultipartFile> files;
 
     // product 이미지 파일 리스트
     private List<pDescImgFileDTO> pList_fNo;
