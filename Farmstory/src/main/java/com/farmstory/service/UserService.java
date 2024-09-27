@@ -1,7 +1,6 @@
 package com.farmstory.service;
 
-import com.farmstory.dto.TermsDTO;
-import com.farmstory.dto.UserDTO;
+import com.farmstory.dto.*;
 import com.farmstory.entity.Terms;
 import com.farmstory.entity.User;
 import com.farmstory.repository.Termsrepository;
@@ -11,6 +10,8 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/contents/user")
 public class UserService {
 
-
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final Termsrepository termsRepository;
@@ -37,6 +36,31 @@ public class UserService {
     private final EmailService emailService;
     private final JavaMailSender javaMailSender;
     private final HttpSession session;
+
+    // 페이지네이션 User selectAll
+    public UserPageResponseDTO selectUserAll(PageRequestDTO pageRequestDTO) {
+
+        log.info("서비스 들어갔나여????????????????????????????????????? ");
+        Pageable pageable = pageRequestDTO.getPageable("uid");
+
+        Page<User> users = userRepository.selectUserAllForList(pageRequestDTO, pageable);
+        log.info(users.toString());
+
+        List<UserDTO> userDTOS = users.getContent().stream().map(user -> {
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+            return userDTO;
+        }).toList();
+        System.out.println("asdfffffffffffffffffffffffffffffffffffff" + userDTOS);
+
+        int total = (int) users.getTotalElements();
+
+        log.info("total dddddddddddd" + total);
+        return UserPageResponseDTO.builder()
+                .pageRequestDTO(pageRequestDTO)
+                .userList(userDTOS)
+                .total(total)
+                .build();
+    }
 
 
 
