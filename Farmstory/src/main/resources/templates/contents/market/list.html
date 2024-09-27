@@ -28,11 +28,11 @@
     </thead>
     <tbody>
     <tr>
-    <tr>
+    <tr th:each="product:${productList}">
       <td class="pic">
         <a th:href="@{/category/market/pview}"><img th:src="@{/images/market_item1.jpg}" alt="사과 500g"></a>
       </td>
-      <td class="type">과일</td>
+      <td class="type" th:text="${product.pNo}">분류</td>
       <td class="pro_name">
         <a th:href="@{/category/market/pview}">사과 500g</a>
       </td>
