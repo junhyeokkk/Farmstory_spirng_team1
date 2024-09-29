@@ -8,33 +8,29 @@ import org.springframework.data.domain.Sort;
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
 public class PageRequestDTO {
-    @Builder.Default
-    private int no =1;  //글번호
-
-    private int cateNo;
-    @Builder.Default
-    private int pg =1;  //페이지 번호
 
     @Builder.Default
-    private int size=10; //한페이지에 검색할 갯수
+    private int no = 1;
+
+    @Builder.Default
+    private int pg = 1;
+
+    @Builder.Default
+    private int size = 10;
+
+    @Builder.Default
+    private String cate = "free";
 
     private String type;
     private String keyword;
-    @Builder.Default
-    private String content="list";
-    private String uid;
 
-    public Pageable getPageable(String sort,int size) {
-        this.size=size;
-        return PageRequest.of(this.pg-1,this.size, Sort.by(sort).descending());
-    }
     public Pageable getPageable(String sort) {
-        return PageRequest.of(this.pg-1,this.size, Sort.by(sort).descending());
+        return PageRequest.of(this.pg -1 , this.size, Sort.by(sort).descending());
     }
 
 

@@ -1,6 +1,10 @@
 package com.farmstory.controller.user;
 
+import com.farmstory.dto.CateDTO;
+import com.farmstory.dto.PageRequestDTO;
 import com.farmstory.dto.UserDTO;
+import com.farmstory.dto.UserPageResponseDTO;
+import com.farmstory.service.CategoryService;
 import com.farmstory.service.EmailService;
 import com.farmstory.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,7 +28,21 @@ public class UserController {
 
     private final UserService userService;
     private final EmailService emailService;
+    private final CategoryService categoryService;
 
+    @GetMapping("/admin/a_user")
+    public String list(Model model, PageRequestDTO pageRequestDTO) {
+
+        log.info("컨트롤러ㅏ에는 들어가나야ㅕ?        ????????????????????????????");
+        UserPageResponseDTO userPageResponseDTO = userService.selectUserAll(pageRequestDTO);
+        model.addAttribute("userPageResponseDTO", userPageResponseDTO);
+
+        CateDTO cate= categoryService.selectCategory("admin","a_user");
+
+        // 조회한 카테고리 정보를 모델에 추가
+        model.addAttribute("cate", cate);
+        return "admin_index";
+    }
 
     @PostMapping("/user/register")
     public String register(UserDTO userDTO, HttpServletRequest req) {

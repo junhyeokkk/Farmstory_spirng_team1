@@ -32,13 +32,15 @@
       <td class="pic">
         <a th:href="@{/category/market/pview}"><img th:src="@{/images/market_item1.jpg}" alt="사과 500g"></a>
       </td>
-      <td class="type" th:text="${product.pNo}">분류</td>
+      <td class="type" th:text="${product.prodCateNo}">분류</td>
       <td class="pro_name">
-        <a th:href="@{/category/market/pview}">사과 500g</a>
+        <a th:href="@{/category/market/pview}" th:text="${product.pName}">상품이름</a>
       </td>
-      <td class="sale">10%</td>
-      <td class="point">400P</td>
-      <td class="price"><strong>3,600원</strong><span class="original_price">4,000원</span></td>
+      <td class="sale" th:text="${product.discount} + '%'">할인률</td>
+      <td class="point" th:text="${product.point} + 'P'">포인트P</td>
+      <td class="price">
+        <strong th:text="${#numbers.formatDecimal(product.price * (1 - product.discount / 100.0),0,0)} + '원'">할인된 가격</strong>
+        <span class="original_price"  th:text="${product.price} + '원'">상품가격</span></td>
     </tr>
     <tr>
       <td class="pic">
