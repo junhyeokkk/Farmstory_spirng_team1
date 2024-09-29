@@ -84,4 +84,6 @@ processResources {
 	filesMatching('**/application.yml') {
 		expand(project.properties)
 	}
+	doNotTrackState("Disabling state tracking due to file access issues")
+
 }

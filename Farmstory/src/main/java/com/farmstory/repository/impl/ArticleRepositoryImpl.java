@@ -41,7 +41,7 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
                 .on(qarticle.writer.eq(quser.uid))
                 .join(qcate)
                 .on(qcate.cateNo.eq(qarticle.cateNo))
-                .where(qcate.cateNo.eq(cateNo))
+                .where(qcate.cateNo.eq(cateNo).and(qarticle.isNotice.eq(false)))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .orderBy(qarticle.articleNo.desc())
@@ -65,6 +65,48 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
 
     }
 
+
+
+    @Override
+    public Page<Tuple> selectArticleAllForListOnlyUid(PageRequestDTO pagerequestDTO, Pageable pageable,int cateNo) {
+        String uid = pagerequestDTO.getUid();
+
+        List<Tuple> content = queryFactory
+                .select(qarticle, quser.nick)
+                .from(qarticle)
+                .join(quser)
+                .on(qarticle.writer.eq(quser.uid))
+                .join(qcate)
+                .on(qcate.cateNo.eq(qarticle.cateNo))
+                .where(qcate.cateNo.eq(cateNo)
+                        .and(qarticle.writer.eq(uid))
+                        .and(qarticle.isNotice.eq(false))
+                )
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .orderBy(qarticle.articleNo.desc())
+                .fetch();
+
+        long total = queryFactory
+                .select(qarticle.count())
+                .from(qarticle)
+                .join(qcate)
+                .on(qcate.cateNo.eq(qarticle.cateNo))
+                .where(qcate.cateNo.eq(cateNo)
+                        .and(qarticle.writer.eq(uid))
+                        .and(qarticle.isNotice.eq(false))
+                )
+                .fetchOne();
+
+        log.info("total : "+total);
+
+
+
+
+
+        return new PageImpl<Tuple>(content,pageable,total);
+
+    }
     @Override
     public Page<Tuple> selectArticleForSearch(PageRequestDTO pagerequestDTO, Pageable pageable,int cateNo) {
 
@@ -118,6 +160,8 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
         log.info("total : "+total);
         return new PageImpl<Tuple>(content,pageable,total);
     }
+
+
 
     @Override
     public List<Tuple> selectArticleById(int no) {

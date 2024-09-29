@@ -107,7 +107,7 @@
 .write {
     position: relative;
     width: 762px;
-    margin: 60px auto;
+    margin: 40px auto;
     margin-left: 0px;
 }
 
@@ -162,7 +162,7 @@
 .view {
     position: relative;
     width: 762px;
-    margin: 60px auto;
+    margin: 40px auto;
     margin-left :0px;
 }
 
@@ -262,7 +262,7 @@
 .modify {
     position: relative;
     width: 762px;
-    margin: 60px auto;
+    margin: 40px auto;
     margin-left:0px;
 }
 
@@ -323,3 +323,8 @@
 .btnDelete { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
 .btnModify { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
 .btnList   { display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
+.btnComplete{display: inline-block; padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111;}
+.btn:hover {
+    background:#4b545e;
+    color: #fdfdfd;
+}

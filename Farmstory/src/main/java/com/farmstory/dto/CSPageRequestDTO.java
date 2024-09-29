@@ -12,11 +12,11 @@ import org.springframework.data.domain.Sort;
 @NoArgsConstructor
 @ToString
 @Builder
-public class PageRequestDTO {
+public class CSPageRequestDTO {
     @Builder.Default
     private int no =1;  //글번호
-
-    private int cateNo;
+    @Builder.Default
+    private int cateNo=504;
     @Builder.Default
     private int pg =1;  //페이지 번호
 
@@ -28,6 +28,8 @@ public class PageRequestDTO {
     @Builder.Default
     private String content="list";
     private String uid;
+
+    private boolean isCompleted;
 
     public Pageable getPageable(String sort,int size) {
         this.size=size;

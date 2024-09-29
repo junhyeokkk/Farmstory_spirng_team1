@@ -17,7 +17,9 @@ import java.util.List;
 public class ArticleDTO {
     private int articleNo;   //board no  autoincrement
     private int cateNo; // croptalk={story,garden,re}, event = {event}, community={notice,today,cook,cs,faq}
-    private String title;  //제목
+    private String title;
+
+    //제목
     private String content;  //내용
     private String writer;  //작성자
     private String date;   //작성일 now()
@@ -28,6 +30,12 @@ public class ArticleDTO {
     private int hit =0;
     @Builder.Default
     private int com=0;
+
+    @Builder.Default
+    private boolean isNotice=false;
+
+    private int noticeCate;
+
     //추가필드
     @Transient
     private String nick;
@@ -60,6 +68,8 @@ public class ArticleDTO {
                 .file(file)
                 .hit(hit)
                 .com(com)
+                .isNotice(isNotice)
+                .noticeCate(noticeCate)
                 .build();
     }
 

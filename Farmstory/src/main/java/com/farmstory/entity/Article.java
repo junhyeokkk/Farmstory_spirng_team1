@@ -25,6 +25,7 @@ public class Article {
 
     private int cateNo;
     private String title;  //제목
+    @Column(columnDefinition = "LongText")
     private String content;  //내용
     private String writer;  //작성자
     @CreationTimestamp
@@ -34,11 +35,18 @@ public class Article {
     private int file;
     private int hit;
     private int com;
+    private boolean isNotice;
+    private int noticeCate;
 
     //추가필드
     @Transient
     private String nick;
 
+    @OneToMany(mappedBy = "ano", cascade = CascadeType.REMOVE)
+    private List<FileEntity> fileList;
+
+    @OneToMany(mappedBy = "parent",cascade =CascadeType.REMOVE )
+    private List<Comment> commentList;
 
 
 
@@ -54,6 +62,8 @@ public class Article {
                 .file(file)
                 .hit(hit)
                 .com(com)
+                .isNotice(isNotice)
+                .noticeCate(noticeCate)
                 .build();
     }
 

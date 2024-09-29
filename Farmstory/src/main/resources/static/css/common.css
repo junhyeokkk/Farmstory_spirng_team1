@@ -14,6 +14,7 @@
 .utill li::before{content: "ㅣ";}
 .utill li:nth-child(1):before{display: none;} /* HOME 왼쪽 | 삭제 */
 
+
 /* h_txt (3만원이상 무료배송·팜카드 10%적립) */
 .h_txt{position: absolute; top:59px; right: 0;}
 
@@ -77,7 +78,8 @@
     text-indent: -9999px; display: block; width: 176px; height: 29px; 
     background: url('../images/sub_cate2_lnb1.png') no-repeat;
 }
-.aside_bg .cate_lnb_real li a:hover{background: url('../images/sub_cate2_lnb1_ov.png') no-repeat; }
+.aside_bg .cate_lnb_real li a:hover{background: url('../images/sub_cate2_lnb1_ov.png') no-repeat; opacity: 50% }
+.aside_bg .cate_lnb_real li a.active{background: url('../images/sub_cate2_lnb1_ov.png') no-repeat; }
 
 /* footer */
 #footer{width: 100%; height: auto; }
