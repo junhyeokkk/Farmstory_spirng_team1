@@ -29,6 +29,5 @@ public class pDescImgFile {
     private String rdate;
 
     // 외래키 컬럼
-    @OneToOne(mappedBy = "product")
-    private Product pNo;
+    private int pNo;
 }

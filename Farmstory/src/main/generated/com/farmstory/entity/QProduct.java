@@ -28,8 +28,6 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath pDesc = createString("pDesc");
 
-    public final QpDescImgFile pList_fNo;
-
     public final StringPath pName = createString("pName");
 
     public final NumberPath<Integer> pNo = createNumber("pNo", Integer.class);
@@ -62,7 +60,6 @@ public class QProduct extends EntityPathBase<Product> {
 
     public QProduct(Class<? extends Product> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.pList_fNo = inits.isInitialized("pList_fNo") ? new QpDescImgFile(forProperty("pList_fNo")) : null;
         this.prodCateNo = inits.isInitialized("prodCateNo") ? new QprodCate(forProperty("prodCateNo")) : null;
     }
 
