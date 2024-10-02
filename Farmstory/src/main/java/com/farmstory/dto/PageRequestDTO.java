@@ -1,5 +1,6 @@
 package com.farmstory.dto;
 
+
 import lombok.*;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,5 +32,6 @@ public class PageRequestDTO {
     public Pageable getPageable(String sort) {
         return PageRequest.of(this.pg -1 , this.size, Sort.by(sort).descending());
     }
+
 
 }

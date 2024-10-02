@@ -18,23 +18,29 @@ public class QArticle extends EntityPathBase<Article> {
 
     private static final long serialVersionUID = 1194800359L;
 
-    private static final PathInits INITS = PathInits.DIRECT2;
-
     public static final QArticle article = new QArticle("article");
 
     public final NumberPath<Integer> articleNo = createNumber("articleNo", Integer.class);
 
-    public final QCate cate;
+    public final NumberPath<Integer> cateNo = createNumber("cateNo", Integer.class);
 
-    public final StringPath comNo = createString("comNo");
+    public final NumberPath<Integer> com = createNumber("com", Integer.class);
+
+    public final ListPath<Comment, QComment> commentList = this.<Comment, QComment>createList("commentList", Comment.class, QComment.class, PathInits.DIRECT2);
 
     public final StringPath content = createString("content");
 
     public final DateTimePath<java.time.LocalDateTime> date = createDateTime("date", java.time.LocalDateTime.class);
 
-    public final StringPath file = createString("file");
+    public final NumberPath<Integer> file = createNumber("file", Integer.class);
 
-    public final StringPath hit = createString("hit");
+    public final ListPath<FileEntity, QFileEntity> fileList = this.<FileEntity, QFileEntity>createList("fileList", FileEntity.class, QFileEntity.class, PathInits.DIRECT2);
+
+    public final NumberPath<Integer> hit = createNumber("hit", Integer.class);
+
+    public final BooleanPath isNotice = createBoolean("isNotice");
+
+    public final NumberPath<Integer> noticeCate = createNumber("noticeCate", Integer.class);
 
     public final StringPath regIp = createString("regIp");
 
@@ -43,24 +49,15 @@ public class QArticle extends EntityPathBase<Article> {
     public final StringPath writer = createString("writer");
 
     public QArticle(String variable) {
-        this(Article.class, forVariable(variable), INITS);
+        super(Article.class, forVariable(variable));
     }
 
     public QArticle(Path<? extends Article> path) {
-        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+        super(path.getType(), path.getMetadata());
     }
 
     public QArticle(PathMetadata metadata) {
-        this(metadata, PathInits.getFor(metadata, INITS));
-    }
-
-    public QArticle(PathMetadata metadata, PathInits inits) {
-        this(Article.class, metadata, inits);
-    }
-
-    public QArticle(Class<? extends Article> type, PathMetadata metadata, PathInits inits) {
-        super(type, metadata, inits);
-        this.cate = inits.isInitialized("cate") ? new QCate(forProperty("cate")) : null;
+        super(Article.class, metadata);
     }
 
 }
